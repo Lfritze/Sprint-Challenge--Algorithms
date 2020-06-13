@@ -23,3 +23,4 @@ def count_th(word):
     return count_th(word[1:])
     
 
+print(count_th("the only thing to test Tyrannossaurus Rex that is a long word for ht or th"))
