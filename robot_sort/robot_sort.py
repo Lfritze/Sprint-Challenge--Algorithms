@@ -95,9 +95,31 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        This Robot moves either left or right - This is a clue to use BUBBLE SORT
+        The light can be used to notify when we SWAP, so we can keep looping like a bubble sort pattern. 
+        Bubble sort puts the largest number at the end and sorts the items in order with the bubble pattern. 
+
+        Lets' do Bubble Sort
+
+        The light will be our boolean - to check if we swapped numbers using BS
+        
+        set light on
+        While light is on:
+            Turn off light
+            While able to move right:
+                get item position
+                go right
+                conditional - compare if item we have > item on shelf
+                if our item is > shelf item
+                    go left then swap
+                    go right
+                    turn light on
+                else - if our item is smaller
+                    go back to prev position - drop our item - and move right again
+            set our robot to pos 0 - by moving left until we can't move left anymore
         """
-        # Fill this out
-        pass
+        
+        
 
 
 if __name__ == "__main__":
