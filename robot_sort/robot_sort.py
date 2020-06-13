@@ -92,8 +92,10 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-    def sort(self):
-        """
+
+
+
+"""
         Sort the robot's list.
         This Robot moves either left or right - This is a clue to use BUBBLE SORT
         The light can be used to notify when we SWAP, so we can keep looping like a bubble sort pattern. 
@@ -111,6 +113,7 @@ class SortingRobot:
                 go right
                 conditional - compare if item we have > item on shelf
                 if our item is > shelf item
+                    swap
                     go left then swap
                     go right
                     turn light on
@@ -118,6 +121,26 @@ class SortingRobot:
                     go back to prev position - drop our item - and move right again
             set our robot to pos 0 - by moving left until we can't move left anymore
         """
+    def sort(self):
+        self.set_light_on()
+        # While we still have items to sort
+        while self.light_is_on():
+            # Turn light off - if we don't swap - it leaves the loop to signal completion
+            self.set_light_off():
+            # while positions are available to the right - we can continue sorting
+            while self.can_move_right():
+                # Get item at cur pos and go right to start the comparison
+                self.swap_item()
+                self.move_right()
+            
+            # If out item is bigger than the self item
+            if self.compare_item() == 1:
+                # swap, move left, (swap - smaller item on shelf), move right, turn light on to signal SWAP
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.light_is_on()
         
         
 
